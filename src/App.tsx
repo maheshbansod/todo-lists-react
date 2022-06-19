@@ -1,24 +1,22 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ListGroupThumb from './ListGroup/ListGroupThumb';
+
+const listGroupIds = ["1","2", "3"];
 
 function App() {
+
+  const openListGroup = (id: string) => {
+    // navigate to list group page
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {listGroupIds.map(id => <div onClick={openListGroup.bind(null, id)}>
+        List group '{id}':
+        <ListGroupThumb listGroupId={id}/>
+      </div>)}
     </div>
   );
 }
