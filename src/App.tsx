@@ -1,23 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
-import ListGroupThumb from './ListGroup/ListGroupThumb';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './Home/Home';
+import ListGroupView from './ListGroup/ListGroup';
 
-const listGroupIds = ["1","2", "3"];
+const listGroupIds = ["1", "2", "3"];
 
 function App() {
-
-  const openListGroup = (id: string) => {
-    // navigate to list group page
-  };
-
   return (
-    <div className="App">
-      {listGroupIds.map(id => <div onClick={openListGroup.bind(null, id)}>
-        List group '{id}':
-        <ListGroupThumb listGroupId={id}/>
-      </div>)}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/list/:id" element={<ListGroupView />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
