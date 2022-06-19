@@ -1,12 +1,13 @@
 
 import { useNavigate } from 'react-router-dom';
+import { useAppSelector } from '../hooks';
 import ListThumb from '../List/ListThumb';
-
-const listIds = ["1", "2", "3"];
+import { selectLists } from '../store';
 
 function Home() {
 
     const navigate = useNavigate();
+    const lists = useAppSelector(selectLists);
 
     const openList = (id: string) => {
         // navigate to list group page
@@ -15,10 +16,12 @@ function Home() {
 
     return (
         <div className="Home">
-            {listIds.map(id => <div onClick={openList.bind(null, id)}>
-                List '{id}':
-                <ListThumb listId={id} />
-            </div>)}
+            {lists.map(list => {
+                return <div>
+                    {list.title} , {list.list.length} item(s)
+                </div>
+            })}
+            <button onClick={()=>navigate(`/new-task`)}>Add task</button>
         </div>
     );
 }
