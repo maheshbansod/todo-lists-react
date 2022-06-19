@@ -17,7 +17,7 @@ function Home() {
     return (
         <div className="Home">
             {lists.map(list => {
-                return <div>
+                return <div key={list.id}>
                     {list.title} , {list.list.length} item(s)
                 </div>
             })}
