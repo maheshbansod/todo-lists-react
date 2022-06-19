@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Home/Home';
-import ListGroupView from './ListGroup/ListGroup';
+import ListGroupView from './List/List';
 
 const listGroupIds = ["1", "2", "3"];
 

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-const ListGroupView = () => {
+const ListView = () => {
     const { id } = useParams();
     const title = "Code stuff"
     const todos: any[] = [];
@@ -13,4 +13,4 @@ const ListGroupView = () => {
     </>
 };
 
-export default ListGroupView;
+export default ListView;
