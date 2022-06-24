@@ -1,8 +1,9 @@
 
-import { useNavigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../hooks';
-import ListThumb from '../List/ListThumb';
+import ListView from '../List/List';
 import { selectLists } from '../store';
+import styles from './Home.module.css';
 
 function Home() {
 
@@ -15,13 +16,20 @@ function Home() {
     };
 
     return (
-        <div className="Home">
-            {lists.map(list => {
-                return <div key={list.id}>
-                    {list.title} , {list.list.length} item(s)
-                </div>
-            })}
-            <button onClick={()=>navigate(`/new-task`)}>Add task</button>
+        <div className={styles.container}>
+            <div>
+                {lists.map(list => {
+                    return <div key={list.id} onClick={()=>openList(list.id)}>
+                        {list.title} , {list.list.length} item(s)
+                    </div>
+                })}
+                <button onClick={()=>navigate(`/new-task`)}>Add task</button>
+            </div>
+            <div>
+                <Routes>
+                    <Route path=":id" element={<ListView />} />
+                </Routes>
+            </div>
         </div>
     );
 }

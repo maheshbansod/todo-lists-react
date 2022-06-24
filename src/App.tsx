@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/list/:id" element={<ListView />} />
+          <Route path="/list/*" element={<Home />} />
           <Route path="/new-task" element={<NewTaskView />} />
         </Routes>
       </BrowserRouter>

@@ -14,3 +14,4 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
 export const selectLists = (state: RootState) => state.todo.lists;
+export const selectList = (listId: string) => (state: RootState) => state.todo.lists.find(list => list.id == listId);
