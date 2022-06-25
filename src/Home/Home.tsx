@@ -10,11 +10,6 @@ function Home() {
     const navigate = useNavigate();
     const lists = useAppSelector(selectLists);
 
-    const openList = (id: string) => {
-        // navigate to list group page
-        navigate(`/list/${id}`);
-    };
-
     return (
         <div className={styles.container}>
             <div className={styles.lists}>
