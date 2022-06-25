@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import  listReducer from "./List/listSlice";
+import { localStorageMiddleware } from "./localStorageHelpers";
 
 const store = configureStore({
     reducer: {
         todo: listReducer,
-    }
+    },
+    middleware: (getDefaultMiddleware) =>getDefaultMiddleware().concat(localStorageMiddleware)
 });
 
 export default store;

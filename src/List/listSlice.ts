@@ -1,4 +1,5 @@
 import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
+import getInitialListState from "../localStorageHelpers";
 import { TodoItem, TodoItemStatus, TodoList } from "./model/List";
 
 export interface ListsState {
@@ -6,7 +7,7 @@ export interface ListsState {
 };
 
 const initialState: ListsState = {
-    lists: [{ id: "0", title: "Unlisted", list: [] }]
+    lists: getInitialListState(),
 };
 
 export const listSlice = createSlice({
