@@ -12,4 +12,4 @@ export interface TodoItem {
     status: TodoItemStatus; // item status
 }
 
-type TodoItemStatus = 'done'|'ongoing'|'initial';
+export type TodoItemStatus = 'done'|'ongoing'|'initial';

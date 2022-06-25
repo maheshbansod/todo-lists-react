@@ -1,5 +1,5 @@
 import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
-import { TodoItem, TodoList } from "./model/List";
+import { TodoItem, TodoItemStatus, TodoList } from "./model/List";
 
 export interface ListsState {
     lists: TodoList[];
@@ -68,9 +68,21 @@ export const listSlice = createSlice({
                 }
             }
         },
+        listItemTitleUpdated: (state, action: PayloadAction<{title: string, item_id: string, list_id: string}>) => {
+            let {title, item_id, list_id} = action.payload;
+            let target_list =state.lists.find(l => l.id === list_id)!.list;
+            let target_item = target_list.find(i => i.id === item_id)!;
+            target_item.title = title;
+        },
+        listItemStatusUpdated: (state, action: PayloadAction<{status: TodoItemStatus, item_id: string, list_id: string}>) => {
+            let {status, item_id, list_id} = action.payload;
+            let target_list =state.lists.find(l => l.id === list_id)!.list;
+            let target_item = target_list.find(i => i.id === item_id)!;
+            target_item.status = status;
+        },
     }
 });
 
-export const { listAdded, listDeleted, listItemAdded } = listSlice.actions;
+export const { listAdded, listDeleted, listItemAdded, listItemTitleUpdated, listItemStatusUpdated } = listSlice.actions;
 
 export default listSlice.reducer;
