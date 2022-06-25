@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Routes, useNavigate, useParams } from 'react-router-dom';
 import { useAppSelector } from '../hooks';
 import ListView from '../List/List';
 import { selectLists } from '../store';
@@ -17,15 +17,17 @@ function Home() {
 
     return (
         <div className={styles.container}>
-            <div>
+            <div className={styles.lists}>
                 {lists.map(list => {
-                    return <div key={list.id} onClick={()=>openList(list.id)}>
+                    return <NavLink to={list.id}
+                        className={({isActive}) => isActive?styles.activeListItem:undefined }
+                        key={list.id}>
                         {list.title} , {list.list.length} item(s)
-                    </div>
+                    </NavLink>
                 })}
-                <button onClick={()=>navigate(`/new-task`)}>Add task</button>
             </div>
-            <div>
+            <div className={styles.listContent}>
+                <button onClick={()=>navigate(`/new-task`)}>Add task</button>
                 <Routes>
                     <Route path=":id" element={<ListView />} />
                 </Routes>

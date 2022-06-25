@@ -1,3 +1,29 @@
 .container {
     display: flex;
 }
+
+.lists {
+    padding: 1rem 0;
+}
+
+.lists > a {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    padding: 0 1rem;
+}
+
+.lists > a:not(.activeListItem):hover {
+    background-color: azure;
+}
+
+.listContent {
+    flex: 1;
+    padding: 1rem;
+    background-color: aliceblue;
+    min-height: 80vh;;
+}
+
+.activeListItem {
+    background-color: antiquewhite;
+}
