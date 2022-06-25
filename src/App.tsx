@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Home from './Home/Home';
 import ListView from './List/List';
 import NewTaskView from './List/NewTask';
@@ -10,8 +10,8 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/list/*" element={<Home />} />
+          <Route path="/"  element={<Navigate replace to="/list" /> } />
           <Route path="/new-task" element={<NewTaskView />} />
         </Routes>
       </BrowserRouter>
