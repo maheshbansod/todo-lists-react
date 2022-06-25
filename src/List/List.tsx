@@ -1,17 +1,40 @@
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "../hooks";
+import { useAppDispatch, useAppSelector } from "../hooks";
 import { selectList } from "../store";
+import ListItem from "./ListItem";
+import { listItemStatusUpdated, listItemTitleUpdated } from "./listSlice";
+import { TodoItem, TodoItemStatus } from "./model/List";
 
 const ListView = () => {
     const { id } = useParams();
     const todoList = useAppSelector(selectList(id!))!;
 
+    const dispatch = useAppDispatch();
+
+    const updateTitle = (title: string, item: TodoItem) => {
+        dispatch(listItemTitleUpdated({
+            title,
+            item_id: item.id,
+            list_id: id!,
+        }))
+    };
+
+    const updateStatus = (status: TodoItemStatus, item: TodoItem) => {
+        dispatch(listItemStatusUpdated({
+            status,
+            item_id: item.id,
+            list_id: id!,
+        }))
+    }
+
     return <>
         {
-            todoList.list.map(item => <div key={item.id}>
-                <input type="checkbox" />
-                {item.title}
-            </div>)
+            todoList.list.map(item =>
+                <ListItem
+                    key={item.id}
+                    listItem={item}
+                    onStatusUpdate={(status) => updateStatus(status, item)}
+                    onTitleUpdate={(title) => updateTitle(title, item)} />)
         }
     </>
 };

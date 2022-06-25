@@ -1,0 +1,12 @@
+
+.container {
+    display: block;
+    margin: 0.5rem;
+    margin-left: 0;
+}
+
+input[type=text]:disabled {
+    border: 0;
+    outline: none;
+    background: none;
+}
