@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { selectLists } from "../store";
-import { listItemAdded } from "./listSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { selectLists } from "../../store";
+import { listItemAdded } from "../listSlice";
 import NewListView from "./NewList";
 
 const NewTaskView = () => {
