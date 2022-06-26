@@ -29,7 +29,11 @@ const ListItem = ({listItem, onTitleUpdate, onStatusUpdate}: Props) => {
 
     return <div className={styles.container}>
         {!editing && <input type="checkbox" checked={ImDone} onChange={setDone.bind(null, !ImDone)}/>}
-        <input type="text" value={myTitle} onChange={(e) => setMyTitle(e.target.value)} disabled={!editing} />
+        <input type="text"
+            value={myTitle}
+            onChange={(e) => setMyTitle(e.target.value)}
+            size={myTitle.length}
+            disabled={!editing} />
         {!editing && <button type="button" onClick={setEditing.bind(null, true)}>edit</button>}
         {editing && <div>
             <button type="button" onClick={updateListTitle}>save</button>
