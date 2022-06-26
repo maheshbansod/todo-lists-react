@@ -21,8 +21,8 @@ function Home() {
                     </NavLink>
                 })}
             </div>
-            <div className={styles.listContent}>
                 <button onClick={()=>navigate(`/new-task`)}>Add task</button>
+            <div className={styles.listContent}>
                 <Routes>
                     <Route path=":id" element={<ListView />} />
                 </Routes>
