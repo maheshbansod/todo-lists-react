@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from './ListItem.module.css';
-import { TodoItem, TodoItemStatus } from "./model/List";
+import { TodoItem, TodoItemStatus } from "../model/List";
 
 type Props = {
     listItem: TodoItem;

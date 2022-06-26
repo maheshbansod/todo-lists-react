@@ -2,7 +2,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Home from './Home/Home';
 import ListView from './List/List';
-import NewTaskView from './List/NewTask';
+import NewTaskView from './List/New/NewTask';
 import store from './store';
 
 function App() {

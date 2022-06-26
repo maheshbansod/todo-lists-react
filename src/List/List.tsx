@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { selectList } from "../store";
-import ListItem from "./ListItem";
+import ListItem from "./item/ListItem";
 import { listItemStatusUpdated, listItemTitleUpdated } from "./listSlice";
 import { TodoItem, TodoItemStatus } from "./model/List";
 

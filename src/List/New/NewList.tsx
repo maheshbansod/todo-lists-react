@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useAppDispatch } from "../hooks";
-import { listAdded } from "./listSlice";
+import { useAppDispatch } from "../../hooks";
+import { listAdded } from "../listSlice";
 
 type Props = {
     onListAdded?: (title: string)=>any;
