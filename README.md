@@ -4,6 +4,8 @@ Yet another todo list app :(
 
 A react app to try out redux.
 
+conclusion: react succ.
+
 ## Available Scripts
 
 In the project directory, you can run:
